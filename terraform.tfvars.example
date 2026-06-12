@@ -1,0 +1,48 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# terraform.tfvars is gitignored.
+
+# --- Required ---------------------------------------------------------------
+
+proxmox_server_ip      = "10.0.3.6"
+proxmox_api_key_name   = "tofu"
+proxmox_api_key_secret = "REPLACE_ME"
+node_name              = "your-proxmox-node-name"
+
+# --- Common overrides -------------------------------------------------------
+
+# proxmox_user          = "root@pam"
+# default_network       = "10.0.3"
+# vm_username           = "ubuntu"
+# vm_password           = "change-me"
+# local_ssh_public_key  = "~/.ssh/id_ed25519.pub"
+# local_ssh_private_key = "~/.ssh/id_ed25519"
+
+# --- VM pools ---------------------------------------------------------------
+# Each pool produces <key>-1, <key>-2, ... VMs.
+# IPs are <default_network>.<ip_start + index>.
+
+# node_pools = {
+#   "rke2-server" = {
+#     count       = 3
+#     cpu         = 4
+#     memory      = 16384
+#     ip_start    = 41
+#     description = "RKE2 server"
+#   }
+#   "rke2-agent" = {
+#     count       = 1
+#     cpu         = 4
+#     memory      = 16384
+#     ip_start    = 44
+#     description = "RKE2 agent"
+#   }
+# }
+
+# --- Infra overrides (rarely needed) ----------------------------------------
+
+# datastore_id        = "local-lvm"
+# image_datastore_id  = "local"
+# network_bridge      = "vmbr0"
+# machine_type        = "q35"
+# bios                = "ovmf"
+# ubuntu_image_url    = "https://cloud-images.ubuntu.com/resolute/current/resolute-server-cloudimg-amd64.img"
