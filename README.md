@@ -90,16 +90,12 @@ If you already applied an earlier version of this repo, the resource addresses h
 To migrate state without destroying VMs:
 
 ```sh
-tofu state mv 'proxmox_virtual_environment_vm.rke2_load_balancer[0]' 'module.vms["ex-lb"].proxmox_virtual_environment_vm.node[0]'
-
 for i in 0 1 2; do
   tofu state mv "proxmox_virtual_environment_vm.rke2_server_ubuntu_vm[$i]" "module.vms[\"rke2-server\"].proxmox_virtual_environment_vm.node[$i]"
 done
 
 tofu state mv 'proxmox_virtual_environment_vm.rke2_agent_ubuntu_vm[0]' 'module.vms["rke2-agent"].proxmox_virtual_environment_vm.node[0]'
 ```
-
-Also note that VM names change: the LB goes from `ex-lb` to `ex-lb-1`. The provider may want to rename it in place on the next apply.
 
 ## Layout
 
